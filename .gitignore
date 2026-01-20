@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+transcripts/**
+!transcripts/.keep
+
+# Nix
+.direnv/
+result
+
+# Mac
+.DS_Store
