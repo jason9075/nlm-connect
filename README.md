@@ -1,4 +1,4 @@
-# nlm-connect: NotebookLM 財經筆記自動化工具
+# nlm-connect: NotebookLM 影片文字稿自動化工具
 
 由於 NotebookLM 目前主要還是透過網頁介面操作，利用 Python 套件進行「抓取」並整合進你的 NixOS 開發流，能大幅提升效率。
 
@@ -28,7 +28,7 @@
 
 這是最簡單的部分。當你打開瀏覽器進入特定的 NotebookLM 筆記頁面時，URL 中就包含了這個 ID。
 
-1. **開啟筆記**：在瀏覽器中打開你的「財經筆記」。
+1. **開啟筆記**：在瀏覽器中打開你的「影片筆記」。
 2. **觀察網址**：網址格式通常如下： `https://notebooklm.google.com/notebook/<YOUR_NOTEBOOK_ID>`
 3. **複製 ID**：`<YOUR_NOTEBOOK_ID>` 這一串由亂數、數字與底線組成的字串，就是我們要的 ID。
 
