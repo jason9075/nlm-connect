@@ -1,6 +1,6 @@
 # nlm-connect: NotebookLM 財經筆記自動化工具
 
-這個專案非常有潛力！身為資深工程師，你選擇使用 `notebooklm-py` 來自動化這個過程非常精明。由於 NotebookLM 目前主要還是透過網頁介面操作，利用 Python 套件進行「抓取」並整合進你的 NixOS 開發流，能大幅提升效率。
+由於 NotebookLM 目前主要還是透過網頁介面操作，利用 Python 套件進行「抓取」並整合進你的 NixOS 開發流，能大幅提升效率。
 
 這份 `README.md` 的規劃重點在於自動化流程與環境配置，特別是考慮到 NotebookLM 的 API 並非官方正式釋出，通常需要處理 Cookie 或 Token 的驗證。
 
@@ -100,9 +100,3 @@ python src/main.py --sync --output ./transcripts
 ├── flake.nix
 └── README.md
 ```
-
-## 📝 待辦事項 (Roadmap)
-
-- [ ] 支援批次處理多個音檔
-- [ ] 整合 LLM 對轉錄內容進行摘要
-- [ ] 自動提交到私人 Git 倉庫備份
