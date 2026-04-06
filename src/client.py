@@ -38,7 +38,21 @@ class NLMClient:
             
         cookies = self._parse_cookies()
         print("Fetching authentication tokens...")
-        csrf_token, session_id = await fetch_tokens(cookies)
+        try:
+            csrf_token, session_id = await fetch_tokens(cookies)
+        except Exception as e:
+            print("\n" + "="*60)
+            print("❌ Authentication Failed!")
+            print("Your COOKIE is likely expired or invalid.")
+            print("\nPlease follow these steps to update it:")
+            print("1. Open your browser and go to https://notebooklm.google.com/")
+            print("2. Press F12 to open Developer Tools and go to the 'Network' tab.")
+            print("3. Refresh the page.")
+            print("4. Find a request to 'notebooklm.google.com' (the document itself).")
+            print("5. Look at the 'Request Headers' and copy the entire value of 'Cookie:'.")
+            print("6. Paste this new value into your .env file as COOKIE=...")
+            print("="*60 + "\n")
+            raise Exception("Authentication failed due to invalid COOKIE.") from e
         
         self._auth = AuthTokens(
             cookies=cookies,

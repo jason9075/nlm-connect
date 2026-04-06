@@ -36,6 +36,8 @@
 
 由於 NotebookLM 沒有提供 API Token，我們必須模擬瀏覽器的身份。最穩定的做法是抓取整個 Cookie 字串。
 
+![如何獲取 Cookie](./images/cookie.png)
+
 1. **打開開發者工具**：在 Google Chrome 或 Brave 瀏覽器中打開 NotebookLM 並確保已登入。按下 `F12` 或 `Ctrl+Shift+I`。
 2. **切換到 Network**：點擊 **Network (網路)** 頁籤。
 3. **重新整理**：按下 `F5` 重新整理頁面，讓工具抓取請求。
