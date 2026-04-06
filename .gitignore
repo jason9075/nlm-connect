@@ -8,6 +8,7 @@ transcripts/**
 !transcripts/.keep
 
 transcripts_backup/**
+group/**
 # Nix
 .direnv/
 result
