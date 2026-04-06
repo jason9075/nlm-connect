@@ -60,3 +60,9 @@ class NLMClient:
         async with NotebookLMClient(auth) as client:
             return await client.sources.get_fulltext(self.notebook_id, source_id)
 
+    async def delete_source(self, source_id: str):
+        """Delete a single source."""
+        auth = await self._ensure_auth()
+        async with NotebookLMClient(auth) as client:
+            return await client.sources.delete(self.notebook_id, source_id)
+

@@ -59,15 +59,40 @@ async def sync_transcripts(output_dir: Path):
         except Exception as e:
             print(f"Failed to fetch content for {source.title}: {e}")
 
+async def clear_sources():
+    notebook_id = os.getenv("NOTEBOOK_ID")
+    if not notebook_id:
+        print("Error: NOTEBOOK_ID environment variable is not set.")
+        return
+
+    client = NLMClient(notebook_id)
+    try:
+        sources = await client.list_sources()
+    except Exception as e:
+        print(f"Error listing sources: {e}")
+        return
+
+    print(f"Found {len(sources)} sources to delete.")
+    for source in sources:
+        print(f"[DELETE] Deleting source: {source.title}...")
+        try:
+            await client.delete_source(source.id)
+        except Exception as e:
+            print(f"Failed to delete {source.title}: {e}")
+    print("Done clearing sources.")
+
 def main():
     parser = argparse.ArgumentParser(description="NotebookLM Connect - Transcript Sync")
     parser.add_argument("--sync", action="store_true", help="Sync transcripts from NotebookLM")
+    parser.add_argument("--clear", action="store_true", help="Clear all sources from NotebookLM")
     parser.add_argument("--output", type=str, default="./transcripts", help="Output directory")
     
     args = parser.parse_args()
     
     if args.sync:
         asyncio.run(sync_transcripts(Path(args.output)))
+    elif args.clear:
+        asyncio.run(clear_sources())
     else:
         parser.print_help()
 
